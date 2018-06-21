@@ -1,5 +1,24 @@
 /*Configuraciones generales de las columnas dentro de la grilla*/
 
+.col-6 {
+  margin-left: 350px;
+  margin-top: 100px;
+  font-family: 'Bitter', serif;
+}
+
+.login {
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+#access {
+  font-family: 'Bitter', serif;
+}
+
+#caja-2 {
+  display: none;
+}
+
 .col-2 {
   background-color: white;
   height: 100px;
@@ -45,59 +64,6 @@
   font-family: 'Bitter', serif;
 }
 
-/*A partir de aquí empezamos a definir las configuraciones del menú desplegable donde se filtrará la data por sede, generación y nombre de alumna*/
-
-.header {
-  width: 300px;
-}
-
-.nav {
-  padding: 20px;
-  margin: 0;
-  border: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-.nav li a {
-  background-color: black;
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: block;
-  font-family: 'Bitter', serif;
-}
-
-.nav>li {
-  float: left;
-}
-
-/*A continuación se configura el color que toma el cuadro del menú después de pasar el mouse por encima*/
-
-.nav li a:hover {
-  background-color: #434343;
-}
-
-.nav li ul {
-  display: none;
-  position: absolute;
-  min-width: 140px;
-}
-
-.nav li:hover>ul {
-  display: block;
-  float: left;
-}
-
-.nav a {
-  line-height: 160%;
-  padding: 11px 0px 11px 30px;
-  width: 160px;
-}
-
 /*Aquí vamos a definir la ubicación del avatar del estudiante dentro de la tarjeta*/
 
 .avatarStudent {
@@ -122,7 +88,7 @@ ol {
   height: 400px;
   width: 800px;
   padding-top: 10px;
-  padding-left: 10px;
+  padding-left: 0px;
 }
 
 /* Se aplica la función :hover que cuando el mouse pasa sobre la tarjeta se acentúa la sombra para darle relieve */
@@ -135,4 +101,5 @@ ol {
 
 .container {
   padding: 4px 30px;
+  margin-left: 200px;
 }

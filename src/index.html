@@ -11,93 +11,71 @@
 </head>
 
 <body>
+  <!-- Aquí vamos a crear la primera caja del login -->
   <div class="container">
-    <div class="row">
-      <!-- Inicio primer row -->
-      <div class="col-2">
-        <img class="logo" src="imagenes/logo2.jpeg" alt="">
-      </div>
-      <div class="col-2-costado">
-        <h1>Hola Valentina Smith</h1>
-      </div>
-    </div>
-    <!-- cierre primer row -->
-    <div class="row">
-      <!-- Inicio segundo row -->
-      <div class="col-2-columna">
-        <img class="avatarUser" src="imagenes/avatar.vale.jpg" alt="">
-        <div id="header">
-          <!-- aquí vamos a hacer el menú desplegable donde se filtrarán sede, estudiante y generación -->
-          <ul class="nav">
-            <li>
-              <a href="">SEDE</a>
-              <ul>
-                <li>
-                  <a href="">SCL</a>
-                </li>
-                <li>
-                  <a href="">LIMA</a>
-                </li>
-                <li>
-                  <a href="">CDMX</a>
-                </li>
-                <li>
-                  <a href="">SAO PAULO</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="">GENERACIÓN</a>
-              <ul>
-                <li>
-                  <a href="">1era. Generación</a>
-                </li>
-                <li>
-                  <a href="">2da. Generación</a>
-                </li>
-                <li>
-                  <a href="">3era. Generación</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="">NOMBRE ALUMNA</a>
-              <ul>
-                <li>
-                  <a href="">ISMARI SALGES</a>
-                </li>
-                <li>
-                  <a href="">CAROLINA DA SILVA</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
+    <section id="caja-1">
+      <div class="col-6">
+        <div id="imagen-logo">
+          <img src="imagenes/logo-login.png" alt="">
+        </div>
+        <div class="login">
+          <h3>Correo electrónico:</h3>
+          <br>
+          <input type="text">
+          <br>
+          <br>
+          <h3>Clave:</h3>
+          <br>
+          <input type="text">
+          <br>
+          <br>
+          <button id="access">INGRESAR</button>
         </div>
       </div>
-      <!-- Estamos poniendo información de usuario -->
-      <div class="col-3-costado">
-        <div class="card">
-          <!-- Información del estudiante -->
-          <div class="container">
-            <!-- avatar del estudiante, donde debería ir la foto -->
-            <img class="avatarStudent" src="imagenes/avatar.student.gif" alt="">
-            <div class="studentInfo">
-              <h2>
-                <b>Estudiante:</b>
-                <!-- La data correspondiente a cada estudiante debería ir aquí -->
-              </h2>
-              <h3>Cursos Completados</h3>
-              <h3>Quizzes Completados</h3>
+
+    </section>
+    <section id="caja-2">
+
+      <div class="row">
+        <!-- Inicio primer row de la segunda caja -->
+        <div class="col-2">
+          <img class="logo" src="imagenes/logo2.jpeg" alt="">
+        </div>
+        <div class="col-2-costado">
+          <h1>Hola Valentina Smith</h1>
+        </div>
+      </div>
+      <!-- cierre primer row -->
+      <div class="row">
+        <!-- Inicio segundo row -->
+        <div class="col-2-columna">
+          <img class="avatarUser" src="imagenes/avatar.vale.jpg" alt="">
+          <div id="header">
+            <button id="btnSearch">Estudiante</button>
+          </div>
+          <!-- Estamos poniendo información de usuario -->
+          <div class="col-3-costado">
+            <div class="card">
+              <!-- Información del estudiante -->
+              <div class="container">
+                <!-- avatar del estudiante, donde debería ir la foto -->
+                <img class="avatarStudent" src="imagenes/avatar.student.gif" alt="">
+                <div class="studentInfo">
+                  <h2>
+                    <b>Estudiante:</b>
+                  </h2>
+                  <!-- La data correspondiente a cada estudiante debería ir aquí -->
+                  <div id="infoStudent"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-    </div>
-
+    </section>
 
     <script src="main.js"></script>
+    <script src="data.js"></script>
   </div>
 </body>
 
