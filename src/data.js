@@ -28,6 +28,13 @@ window.computeUsersStats = (users, progress, courses) => {
       let lectures = 0;
       let lecturesCompleted = 0;
       let lecturesPercent;
+      let quizzes = 0;
+      let quizzesCompleted = 0;
+      let quizzesPercent;
+      let exercises = 0;
+      let exercisesCompleted = 0;
+      let exercisesPercent;
+
       let i;
       for (i in progresoEstudiante) {
         let element = progresoEstudiante[i];
@@ -41,13 +48,29 @@ window.computeUsersStats = (users, progress, courses) => {
             if (part.type === 'read' &&
               part.completed === 1) {
               lecturesCompleted++;
-
-
             }
             lecturesPercent = (lecturesCompleted * 100) / lectures;
+            if (part.type === 'quiz') {
+              quizzes++;
+            }
+            if (part.type === 'quiz' &&
+              part.completed === 1) {
+              quizzesCompleted++;
+            }
+            quizzesPercent = (quizzesCompleted * 100) / quizzes;
+            if (part.type === 'practice') {
+              exercises++;
+            }
+            if (part.type === 'practice' &&
+              part.completed === 1) {
+              exercisesCompleted++;
+            }
+            exercisesPercent = (exercisesCompleted * 100) / exercises;
           }
         }
         console.log(lectures);
+        console.log(quizzes);
+        console.log(exercises);
 
       }
 
@@ -63,7 +86,7 @@ window.computeUsersStats = (users, progress, courses) => {
 
 
 
-      return container.innerHTML += `<p>${estudiante.name.toUpperCase() + '<br>Cantidad de Lecturas: ' + lectures + '<br>Lecturas Completadas ' + lecturesCompleted + '<br>Porcentajes de Completitud: ' + Math.round(lecturesPercent) + '%'}</p>`;
+      return container.innerHTML += `<p>${estudiante.name.toUpperCase() + '<br>Cantidad de Lecturas: ' + lectures + 'Lecturas Completadas ' + lecturesCompleted + 'Porcentajes de Completitud: ' + Math.round(lecturesPercent) + '%' + '<br>Cantidad de Quiz: ' + quizzes + 'Quiz Completados ' + quizzesCompleted + 'Porcentajes de Completitud: ' + Math.round(quizzesPercent) + '%' + '<br>Cantidad de Ejercicios: ' + exercises + 'Ejercicios Completadas ' + exercisesCompleted + 'Porcentajes de Completitud: ' + Math.round(exercisesPercent) + '%'}</p>`;
 
     });
 
