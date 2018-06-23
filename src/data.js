@@ -27,24 +27,28 @@ window.computeUsersStats = (users, progress, courses) => {
 
       let lectures = 0;
       let lecturesCompleted = 0;
-      let lecturesPercent = (lecturesCompleted / lectures) * 100;
+      let lecturesPercent;
       let i;
       for (i in progresoEstudiante) {
-        if (progresoEstudiante.hasOwnProperty(i)) {
-          let element = progresoEstudiante[i];
-          let unit;
-          for (unit of Object.values(element.units)) {
-            for (let part of Object.values(unit.parts)) {
-              if (part.type === 'read') {
-                lectures++;
-              }
-              if (part.completed === 1) {
-                lecturesCompleted++;
-              }
+        let element = progresoEstudiante[i];
+        let unit;
+
+        for (unit of Object.values(element.units)) {
+          for (let part of Object.values(unit.parts)) {
+            if (part.type === 'read') {
+              lectures++;
             }
+            if (part.type === 'read' &&
+              part.completed === 1) {
+              lecturesCompleted++;
+
+
+            }
+            lecturesPercent = (lecturesCompleted * 100) / lectures;
           }
-          console.log(lectures);
         }
+        console.log(lectures);
+
       }
 
       /*return readsInfo = new Object;
@@ -59,7 +63,7 @@ window.computeUsersStats = (users, progress, courses) => {
 
 
 
-      return container.innerHTML += `<p>${estudiante.name.toUpperCase() + ' ' + lectures + ' ' + lecturesCompleted}</p>`;
+      return container.innerHTML += `<p>${estudiante.name.toUpperCase() + '<br>Cantidad de Lecturas: ' + lectures + '<br>Lecturas Completadas ' + lecturesCompleted + '<br>Porcentajes de Completitud: ' + Math.round(lecturesPercent) + '%'}</p>`;
 
     });
 
