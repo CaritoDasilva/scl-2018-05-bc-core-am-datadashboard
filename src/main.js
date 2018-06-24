@@ -47,7 +47,13 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 btnSearch.addEventListener('click', () => {
   computeUsersStats(users, progress, courses);
   users.forEach((user) => {
-    container.innerHTML += `<p>${user.name.toUpperCase() + ' ' + JSON.stringify(user.stats.exercises) + JSON.stringify(user.stats.quizzes) + JSON.stringify(user.stats.reads) }</p>`;
-
+    if (user.stats.exercises.length === 0 && user.stats.quizzes.length === 0 && user.stats.reads.length === 0 && user.stats.percentTotal.length === 0) {
+      user.stats.percentTotal = 0;
+      user.stats.exercises = {};
+      user.stats.reads = {};
+      user.stats.quizzes = {};
+    } else {
+      container.innerHTML += `<p>${user.name.toUpperCase() + '<br>Porcentaje General: ' + user.stats.percentTotal + '%' + '<br>Info Ejercicios: ' + JSON.stringify(user.stats.exercises) + '<br>Info Quizzes: ' + JSON.stringify(user.stats.quizzes) + '<br>Info Lecturas: ' + JSON.stringify(user.stats.reads) }</p>`;
+    }
   });
 });

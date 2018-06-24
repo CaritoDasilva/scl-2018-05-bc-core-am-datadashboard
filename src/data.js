@@ -24,8 +24,10 @@ window.computeUsersStats = (users, progress, courses) => {
           if (part.type === 'read') {
             lectures++;
           }
-          if (part.length === 0)
-            lectures;
+          if (part.length === 0) {
+            lectures = 0;
+            percentGral = 0;
+          }
           if (part.type === 'read' &&
             part.completed === 1) {
             lecturesCompleted++;
@@ -35,8 +37,10 @@ window.computeUsersStats = (users, progress, courses) => {
           if (part.type === 'quiz') {
             quizzes++;
           }
-          if (part.length === 0)
-            quizzes;
+          if (part.length === 0) {
+            quizzes = 0;
+            percentGral = 0;
+          }
           if (part.type === 'quiz' &&
             part.completed === 1) {
             quizzesCompleted++;
@@ -45,40 +49,39 @@ window.computeUsersStats = (users, progress, courses) => {
           if (part.type === 'practice') {
             exercises++;
           }
-          if (part.length === 0)
-            exercises;
+          if (part.length === 0) {
+            exercises = 0;
+            percentGral = 0;
+          }
           if (part.type === 'practice' &&
             part.completed === 1) {
             exercisesCompleted++;
           }
           exercisesPercent = Math.round((exercisesCompleted * 100) / exercises);
           percentGral = Math.round((lecturesPercent + quizzesPercent + exercisesPercent) / 3);
-          if (part.length === 0)
-            percentGral = 0;
         }
       }
       // Se crea stats en el user y se le asigna un objeto con los resultados de cada alumna
-      estudiante.stats = {
-        percentTotal: percentGral,
-        exercises: {
-          total: exercises,
-          completed: exercisesCompleted,
-          percent: lecturesPercent
-        },
-        quizzes: {
-          total: quizzes,
-          completed: quizzesCompleted,
-          percent: quizzesPercent
-        },
-        reads: {
-          total: lectures,
-          completed: lecturesCompleted,
-          percent: lecturesPercent
-        },
-      };
-
-
     }
+
+    estudiante.stats = {
+      percentTotal: percentGral,
+      exercises: {
+        total: exercises,
+        completed: exercisesCompleted,
+        percent: lecturesPercent
+      },
+      quizzes: {
+        total: quizzes,
+        completed: quizzesCompleted,
+        percent: quizzesPercent
+      },
+      reads: {
+        total: lectures,
+        completed: lecturesCompleted,
+        percent: lecturesPercent
+      },
+    };
     console.log(estudiante);
     return users;
   });
