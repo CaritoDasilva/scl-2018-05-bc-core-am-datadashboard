@@ -1,5 +1,4 @@
 window.computeUsersStats = (users, progress, courses) => {
-
   users.forEach((estudiante) => {
 
     const progresoEstudiante = progress.find(progre => progre[0] === estudiante.id)[1];
@@ -25,14 +24,19 @@ window.computeUsersStats = (users, progress, courses) => {
           if (part.type === 'read') {
             lectures++;
           }
+          if (part.length === 0)
+            lectures;
           if (part.type === 'read' &&
             part.completed === 1) {
             lecturesCompleted++;
           }
+
           lecturesPercent = Math.round((lecturesCompleted * 100) / lectures);
           if (part.type === 'quiz') {
             quizzes++;
           }
+          if (part.length === 0)
+            quizzes;
           if (part.type === 'quiz' &&
             part.completed === 1) {
             quizzesCompleted++;
@@ -41,15 +45,19 @@ window.computeUsersStats = (users, progress, courses) => {
           if (part.type === 'practice') {
             exercises++;
           }
+          if (part.length === 0)
+            exercises;
           if (part.type === 'practice' &&
             part.completed === 1) {
             exercisesCompleted++;
           }
           exercisesPercent = Math.round((exercisesCompleted * 100) / exercises);
           percentGral = Math.round((lecturesPercent + quizzesPercent + exercisesPercent) / 3);
+          if (part.length === 0)
+            percentGral = 0;
         }
       }
-      // Se crea el atributo stats en el user y se le asigna un objeto con las estadisticas
+      // Se crea stats en el user y se le asigna un objeto con los resultados de cada alumna
       estudiante.stats = {
         percentTotal: percentGral,
         exercises: {
@@ -68,10 +76,11 @@ window.computeUsersStats = (users, progress, courses) => {
           percent: lecturesPercent
         },
       };
-    }
 
+
+    }
+    console.log(estudiante);
     return users;
-    console.log(users);
   });
 };
 window.sortUsers = (users, orderB, orderDirection) => {

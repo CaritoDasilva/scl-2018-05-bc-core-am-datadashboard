@@ -1,9 +1,22 @@
-/* Declaro el botón para el primer evento que nos pasará a la segunda pantalla */
+/* Declaro los botones */
 const btn = document.getElementById('access');
 const btnSearch = document.getElementById('btnSearch');
+/*Declaro las variables Globales*/
 let users = [];
 let progress = [];
 let courses = [];
+let nameTable = document.getElementById('nombre');
+let generalPercentTable = document.getElementById('porcentajeGeneral');
+let lecturesTable = document.getElementById('lecturas');
+let lecturesCompletedTable = document.getElementById('lecturasCompletadas');
+let lecturesPercentTable = document.getElementById('porcentajeLecturas');
+let quizzesTable = document.getElementById('quizzes');
+let quizzesCompletedTable = document.getElementById('quizzesCompletados');
+let quizzesPercentTable = document.getElementById('porcentajeQuizzes');
+let exercisesTable = document.getElementById('ejercicios');
+let exercisesCompletedTable = document.getElementById('ejerciciosCompletados');
+let exercisesPercentTable = document.getElementById('porcentajeEjercicios');
+
 btn.addEventListener('click', () => {
   const boxTwo = document.getElementById('caja-2');
   const boxOne = document.getElementById('caja-1');
@@ -34,6 +47,7 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 btnSearch.addEventListener('click', () => {
   computeUsersStats(users, progress, courses);
   users.forEach((user) => {
-    container.innerHTML += `<p>${user.name.toUpperCase() + ' ' + user.stats.percentTotal + '%' + JSON.stringify(user.stats.exercises) + JSON.stringify(user.stats.quizzes) + JSON.stringify(user.stats.reads) }</p>`;
+    container.innerHTML += `<p>${user.name.toUpperCase() + ' ' + JSON.stringify(user.stats.exercises) + JSON.stringify(user.stats.quizzes) + JSON.stringify(user.stats.reads) }</p>`;
+
   });
 });
