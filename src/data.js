@@ -4,6 +4,7 @@ window.computeUsersStats = (users, progress, courses) => {
 
     const progresoEstudiante = progress.find(progre => progre[0] === estudiante.id)[1];
 
+    let percentGral;
     let lectures = 0;
     let lecturesCompleted = 0;
     let lecturesPercent;
@@ -28,7 +29,7 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             lecturesCompleted++;
           }
-          lecturesPercent = (lecturesCompleted * 100) / lectures;
+          lecturesPercent = Math.round((lecturesCompleted * 100) / lectures);
           if (part.type === 'quiz') {
             quizzes++;
           }
@@ -36,7 +37,7 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             quizzesCompleted++;
           }
-          quizzesPercent = (quizzesCompleted * 100) / quizzes;
+          quizzesPercent = Math.round((quizzesCompleted * 100) / quizzes);
           if (part.type === 'practice') {
             exercises++;
           }
@@ -44,15 +45,17 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             exercisesCompleted++;
           }
-          exercisesPercent = (exercisesCompleted * 100) / exercises;
+          exercisesPercent = Math.round((exercisesCompleted * 100) / exercises);
+          percentGral = Math.round((lecturesPercent + quizzesPercent + exercisesPercent) / 3);
         }
       }
       // Se crea el atributo stats en el user y se le asigna un objeto con las estadisticas
       estudiante.stats = {
-        /* percent: , */
+        percentTotal: percentGral,
         exercises: {
           total: exercises,
-          completed: exercisesCompleted
+          completed: exercisesCompleted,
+          percent: lecturesPercent
         },
         quizzes: {
           total: quizzes,
@@ -68,6 +71,7 @@ window.computeUsersStats = (users, progress, courses) => {
     }
 
     return users;
+    console.log(users);
   });
 };
 window.sortUsers = (users, orderB, orderDirection) => {

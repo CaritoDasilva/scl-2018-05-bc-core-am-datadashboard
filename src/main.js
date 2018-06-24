@@ -34,6 +34,6 @@ Promise.all([ // Ejecuta todas las llamadas de manera paralela
 btnSearch.addEventListener('click', () => {
   computeUsersStats(users, progress, courses);
   users.forEach((user) => {
-    container.innerHTML += `<p>${user.name + JSON.stringify(user.stats.exercises) + JSON.stringify(user.stats.quizzes) + JSON.stringify(user.stats.reads) }</p>`;
+    container.innerHTML += `<p>${user.name.toUpperCase() + ' ' + user.stats.percentTotal + '%' + JSON.stringify(user.stats.exercises) + JSON.stringify(user.stats.quizzes) + JSON.stringify(user.stats.reads) }</p>`;
   });
 });
