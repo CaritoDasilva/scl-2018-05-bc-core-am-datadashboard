@@ -3,16 +3,16 @@ window.computeUsersStats = (users, progress, courses) => {
 
     const progresoEstudiante = progress.find(progre => progre[0] === estudiante.id)[1];
 
-    let percentGral;
+    let percentGral = 0;
     let lectures = 0;
     let lecturesCompleted = 0;
-    let lecturesPercent;
+    let lecturesPercent = 0;
     let quizzes = 0;
     let quizzesCompleted = 0;
-    let quizzesPercent;
+    let quizzesPercent = 0;
     let exercises = 0;
     let exercisesCompleted = 0;
-    let exercisesPercent;
+    let exercisesPercent = 0;
 
     let i;
     for (i in progresoEstudiante) {
@@ -57,7 +57,7 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             exercisesCompleted++;
           }
-          exercisesPercent = Math.round((exercisesCompleted * 100) / exercises);
+          exercisesPercent = Math.round((exercisesCompleted * 100) / exercises || 1);
           percentGral = Math.round((lecturesPercent + quizzesPercent + exercisesPercent) / 3);
         }
       }
