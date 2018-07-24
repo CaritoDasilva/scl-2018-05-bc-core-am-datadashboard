@@ -16,9 +16,9 @@ window.computeUsersStats = (users, progress, courses) => {
 
     let i;
     for (i in progresoEstudiante) {
+      console.log(progresoEstudiante);
       let element = progresoEstudiante[i];
       let unit;
-
       for (unit of Object.values(element.units)) {
         for (let part of Object.values(unit.parts)) {
           if (part.type === 'read') {
@@ -33,7 +33,7 @@ window.computeUsersStats = (users, progress, courses) => {
             lecturesCompleted++;
           }
 
-          lecturesPercent = Math.round((lecturesCompleted * 100) / lectures);
+          lecturesPercent = Math.round(lecturesCompleted * 100 / lectures || 1);
           if (part.type === 'quiz') {
             quizzes++;
           }
@@ -45,7 +45,7 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             quizzesCompleted++;
           }
-          quizzesPercent = Math.round((quizzesCompleted * 100) / quizzes);
+          quizzesPercent = Math.round(quizzesCompleted * 100 / quizzes || 1);
           if (part.type === 'practice') {
             exercises++;
           }
@@ -57,7 +57,7 @@ window.computeUsersStats = (users, progress, courses) => {
             part.completed === 1) {
             exercisesCompleted++;
           }
-          exercisesPercent = Math.round((exercisesCompleted * 100) / exercises || 1);
+          exercisesPercent = Math.round(exercisesCompleted * 100 / exercises || 1);
           percentGral = Math.round((lecturesPercent + quizzesPercent + exercisesPercent) / 3);
         }
       }
@@ -86,14 +86,24 @@ window.computeUsersStats = (users, progress, courses) => {
     return users;
   });
 };
-window.sortUsers = (users, orderB, orderDirection) => {
+// window.sortUsers = (users, orderB, orderDirection) => {
+//   if (orderby === )
 
-};
+// };
 
 window.filterUsers = (users, search) => {
+  if (search) {
 
+    if (users) {
+      search = search.toLowerCase();
+      users.filter((user) => {
+        return user && user.name && user.name.toLowerCase().indexOf(search) >= 0;
+      });
+    }
+    return users;
+    console.log(users);
+  };
 };
-
 window.processCohortData = (options) => {
 
 };

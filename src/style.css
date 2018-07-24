@@ -45,12 +45,12 @@
 .col-3-costado {
   background-color: ffffff;
   height: 200px;
-  width: 400px;
+  width: 1000px;
   border: 4px solid white;
-  text-align: center;
+  text-align: left;
   font-family: 'Bitter', serif;
   line-height: 100px;
-  margin-left: 250px;
+  margin-left: 300px;
 }
 
 /*Se define la configuración del avatar de usuario*/
@@ -66,6 +66,10 @@
 }
 
 .studentInfo {
-  float: right;
+  float: left;
   padding: 10px;
+}
+
+#caja-3 {
+  display: none;
 }

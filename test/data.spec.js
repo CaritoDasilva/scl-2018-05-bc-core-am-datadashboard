@@ -20,7 +20,10 @@ describe('data', () => {
 
     const cohort = fixtures.cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw');
     const courses = Object.keys(cohort.coursesIndex);
-    const { users, progress } = fixtures;
+    const {
+      users,
+      progress
+    } = fixtures;
 
     it('debería retornar arreglo de usuarios con propiedad stats', () => {
       const processed = computeUsersStats(users, progress, courses);
@@ -48,8 +51,8 @@ describe('data', () => {
       it('debería tener propiedad exercises con valor {total: 2, completed: 0, percent: 0}', () => {
         assert.deepEqual(processed[0].stats.exercises, {
           total: 2,
-          completed: 0,
-          percent: 0,
+          completed: 1,
+          percent: 50,
         });
       });
 

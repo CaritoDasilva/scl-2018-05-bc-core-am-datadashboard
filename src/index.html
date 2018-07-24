@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <title>Data Dashboard</title>
   <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
 
@@ -62,7 +64,17 @@
                 <div class="studentInfo">
 
                   <!-- La data correspondiente a cada estudiante debería ir aquí -->
-                  <div id="infoStudent"></div>
+                  <div id="nombre"></div>
+                  <div id="porcentajeGeneral"></div>
+                  <div id="lecturas"></div>
+                  <div id="lecturasCompletadas"></div>
+                  <div id="porcentajeLecturas"></div>
+                  <div id="quizzes"></div>
+                  <div id="quizzesCompletados"></div>
+                  <div id="porcentajeQuizzes"></div>
+                  <div id="ejercicios"></div>
+                  <div id="ejerciciosCompletados"></div>
+                  <div id="porcentajeEjercicios"></div>
                 </div>
               </div>
             </div>
@@ -70,7 +82,11 @@
         </div>
       </div>
     </section>
+    <section id="caja-3">
+      <input type="text" class="col-6" id="searchInput" onkeyup="searchingStudents()">
+      <div id="filtersPrint"></div>
 
+    </section>
     <script src="main.js"></script>
     <script src="data.js"></script>
   </div>
