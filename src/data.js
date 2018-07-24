@@ -86,24 +86,26 @@ window.computeUsersStats = (users, progress, courses) => {
     return users;
   });
 };
-// window.sortUsers = (users, orderB, orderDirection) => {
-//   if (orderby === )
+window.sortUsers = (users, orderBy, orderDirection) => {
+  if (orderby === 'name' && orderBy === 'percent' && orderBy === 'lecturesPercent' && orderBy === 'quizzesPercent' && orderBy === 'lecturesPercent') {
 
-// };
+  }
+
+};
 
 window.filterUsers = (users, search) => {
   if (search) {
 
     if (users) {
       search = search.toLowerCase();
-      users.filter((user) => {
-        return user && user.name && user.name.toLowerCase().indexOf(search) >= 0;
-      });
+      return users.filter(user =>
+        user && user.name && user.name.toLowerCase().indexOf(search) >= 0);
     }
-    return users;
-    console.log(users);
-  };
+  }
+  return users;
+
 };
+
 window.processCohortData = (options) => {
 
 };

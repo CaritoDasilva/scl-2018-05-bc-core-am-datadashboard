@@ -58,7 +58,19 @@ btnSearch.addEventListener('click', () => {
       user.stats.reads = {};
       user.stats.quizzes = {};
     } else {
-      nameInfo.innerHTML += `<p>${user.name.toUpperCase() + '<br>Porcentaje General: ' + user.stats.percentTotal + '%' + '<br>Ejercicios: ' + JSON.stringify(user.stats.exercises.total) + ' Ejercicios Completados: ' + JSON.stringify(user.stats.exercises.completed) + ' Porcentaje Completitud: ' + JSON.stringify(user.stats.exercises.percent) + '%' + '<br>Quizzes: ' + JSON.stringify(user.stats.quizzes.total) + ' Quizzes Completados: ' + JSON.stringify(user.stats.quizzes.total) + ' Porcentaje Completitud: ' + JSON.stringify(user.stats.quizzes.percent) + '%' + '<br>Info Lecturas: ' + JSON.stringify(user.stats.reads.total) + ' Lecturas Completadas: ' + JSON.stringify(user.stats.reads.completed) + ' Porcentaje Completitud: ' + JSON.stringify(user.stats.reads.percent) + '%'}</p>`;
+      nameInfo.innerHTML += `<tr>
+    <td>${user.name.toUpperCase()}</td>
+    <td>Porcentaje General${JSON.stringify(user.stats.percentTotal)}%</td>
+    <td>Ejercicios${JSON.stringify(user.stats.exercises.total)}</td>
+    <td>Ejercicios Completados${JSON.stringify(user.stats.exercises.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.exercises.percent)}%</td>
+    <td>Quizzes${JSON.stringify(user.stats.quizzes.total)}%</td>
+    <td>Quizzes Completados${JSON.stringify(user.stats.quizzes.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.quizzes.total)}%</td>
+    <td>Info Lecturas${JSON.stringify(user.stats.reads.total)}</td>
+    <td>Lecturas Completadas${JSON.stringify(user.stats.reads.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.reads.completed)}</td>
+    </tr>`;
     }
   });
 });
@@ -68,7 +80,18 @@ function searchingStudents() {
   const filterUserReady = window.filterUsers(users, search);
   nameInfo.innerHTML = '';
   filterUserReady.forEach(user => {
-    nameInfo.innerHTML += `<p>${user.name}</p>`;
-    console.log(user);
+    nameInfo.innerHTML += `<tr>
+      <td>${user.name.toUpperCase()}</td>
+    <td>Porcentaje General${JSON.stringify(user.stats.percentTotal)}%</td>
+    <td>Ejercicios${JSON.stringify(user.stats.exercises.total)}</td>
+    <td>Ejercicios Completados${JSON.stringify(user.stats.exercises.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.exercises.percent)}%</td>
+    <td>Quizzes${JSON.stringify(user.stats.quizzes.total)}%</td>
+    <td>Quizzes Completados${JSON.stringify(user.stats.quizzes.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.quizzes.total)}%</td>
+    <td>Info Lecturas${JSON.stringify(user.stats.reads.total)}</td>
+    <td>Lecturas Completadas${JSON.stringify(user.stats.reads.completed)}</td>
+    <td>Porcentaje Completitud${JSON.stringify(user.stats.reads.completed)}</td>
+    </tr>`;
   });
 };
