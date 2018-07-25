@@ -69,7 +69,7 @@ window.computeUsersStats = (users, progress, courses) => {
       exercises: {
         total: exercises,
         completed: exercisesCompleted,
-        percent: lecturesPercent
+        percent: exercisesPercent
       },
       quizzes: {
         total: quizzes,
@@ -87,11 +87,17 @@ window.computeUsersStats = (users, progress, courses) => {
   });
 };
 window.sortUsers = (users, orderBy, orderDirection) => {
-  if (orderby === 'name' && orderBy === 'percent' && orderBy === 'lecturesPercent' && orderBy === 'quizzesPercent' && orderBy === 'lecturesPercent') {
-
+  if (orderby === 'name' || orderBy === 'percentTotal' || orderBy === 'lecturesPercent' || orderBy === 'quizzesPercent' || orderBy === 'exercisesPercent') {
+    return users.sort(function (a, b) {
+      if (orderDirection == 'ASC') {
+        return a.name.localeCompare(b.name) || a.stats.percentTotal - b.stats.percentTotal || a.stats.exercises.exercisesPercent - b.stats.exercises.exercisesPercent || a.stats.reads.lecturesPercent - b.stats.reads.lecturesPercent || a.stats.quizzes.quizzesPercent - b.stats.quizzes.quizzesPercent;
+      } else {
+        return a.name.localeCompare(b.name) * -1 || (a.stats.percentTotal - b.stats.percentTotal) * -1 || (a.stats.exercises.exercisesPercent - b.stats.exercises.exercisesPercent) * -1 || (a.stats.reads.lecturesPercent - b.stats.reads.lecturesPercent) * -1 || (a.stats.quizzes.quizzesPercent - b.stats.quizzes.quizzesPercent) * -1;
+      }
+    });
   }
+}
 
-};
 
 window.filterUsers = (users, search) => {
   if (search) {

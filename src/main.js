@@ -95,3 +95,21 @@ function searchingStudents() {
     </tr>`;
   });
 };
+
+function drawStudentsOrdered() {
+  const direction = byStudent.innerText;
+  if (direction == 'ASC') {
+    byStudent.innerText = 'DESC';
+  } else {
+    byStudent.innerText = 'ASC';
+  }
+  // llamamos a la funcion de ordenamiento para que que ordene los usuarios
+  const sortedUsers = window.sortUsers = (users, 'name', direction);
+  // no se hace el getElementById por que en JS todo lo declarado en el html con un id queda como variable global :O
+  nameInfo.innerHTML = '';
+  for (let user of sortedUsers) {
+    nameInfo.innerHTML += `
+      <p>${user.name} ${user.stats.percentTotal}</p>
+    `;
+  }
+}

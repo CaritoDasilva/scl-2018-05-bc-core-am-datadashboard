@@ -9,6 +9,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
+  <link rel="stylesheet" href="btn.css">
 
 </head>
 
@@ -49,6 +50,16 @@
         <div>
           <input type="text" class="col-6" id="searchInput" onkeyup="searchingStudents()">
         </div>
+        <div>
+          <div class="dropdown">
+            <button onclick="orderByMenu()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a onclick="drawStudentsOrdered" id="byStudent" href="#">Por Nombre</a>
+              <a href="#">Por porcentaje general</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- cierre primer row -->
       <div class="row">
@@ -80,6 +91,7 @@
 
     <script src="main.js"></script>
     <script src="data.js"></script>
+    <script src="btn.js"></script>
   </div>
 </body>
 
